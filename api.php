@@ -126,7 +126,7 @@ for ($i = 0; $i < sizeof($id_spikes); $i += 1) {
 
 $sql_submit = "";
 
-$sql2 = "SELECT * FROM levels WHERE levelID=$levelID";
+$sql2 = "SELECT levelID FROM levels WHERE levelID=$levelID";
 $result = mysqli_query($conn, $sql2) or die('-1');
 if (mysqli_num_rows($result) == 0) {
 	$sql_submit = "INSERT INTO levels (levelID, levelName, levelDesc, levelDownloads, levelLikes, levelString, realObjects, wavePortals, cubePortals, shipPortals, ballPortals, ufoPortals, robotPortals, spikes, startGameMode, maxX, startBGColorR, startBGColorG, startBGColorB) VALUES ($levelID, '".mysqli_real_escape_string($conn, $levelName)."', '".mysqli_real_escape_string($conn, $levelDesc)."', $levelDownloads, $levelLikes, '".mysqli_real_escape_string($conn, $levelString)."', $realObjects, ".$frequency[660].", ".$frequency[12].", ".$frequency[13].", ".$frequency[47].", ".$frequency[111].", ".$frequency[745].", $spikes, $startGameMode, $maxX, $startBGColorR, $startBGColorG, $startBGColorB)";
